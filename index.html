@@ -1,0 +1,255 @@
+<html lang = "kr">
+
+<head>
+    <title>오늘배송</title>
+    <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/axios.min.js"></script>
+    <script src="./js/main.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+</head>
+
+<body class="body">
+    <div class="header">
+        <div>
+            <image id="main-logo" class="h24 pointer" src="./images/header_logo.jpg"></image>
+        </div>
+        <div class="header-left-tab">
+            <span id="contact" class="mr32 header-left-buttons fw600">
+                제휴 문의
+            </span>
+            <span id="info" class="header-left-buttons fw600">
+                서비스 소개
+            </span>
+        </div>
+        <div id="ham-menu-openbtn" class="header-ham-menu-openbtn">
+            <img src="images/menu_openbtn.svg" alt="메뉴열기이미지">
+        </div>
+    </div>
+
+    <div id="ham-menu-tab" class="ham-menu-tab">
+        <div class="ham-menu">
+            <div id="ham-menu-closebtn" class="ham-menu-closebtn">
+                <img src="images/menu_closebtn.svg" alt="메뉴닫기이미지">
+            </div>
+            <div class="ham-menu-header">
+                <p class="ham-menu-headertext">
+                    안녕하세요!<br>
+                    가장 완벽한 배송<br>
+                    오늘택배가 함께 합니다!
+                </p>
+            </div>
+            <ul class="ham-menu-list">
+                <li id="momain">배송조회</li>
+                <li id="moinfo">서비스소개</li>
+                <li id="mocontact">제휴문의</li>
+            </ul>
+        </div>        
+    </div>
+
+
+    <div class="main-tab">
+        <p class="font48 z1 ml40p">가장 완벽한 배송</p>
+        <p class="font64 fw600 z1 ml40p">오늘배송</p>
+    </div>
+
+    <div id="searchTab" class="search-tab">
+        <span class="mr32 fw600 w100">운송장 번호</span>
+        <div class="space fw600">|</div>
+        <input id="searchInput" class="search-input ml32 font20" placeholder="' - '를 제외한 숫자만 입력해주세요">
+        <div id="searchButton" class="search-button w100">
+            <img class="h16 mr8" src="./images/icon_search.png">
+            <span class="fw600">검색</span>
+        </div>
+    </div>
+
+    <div id="descDiv" class="main-desc">
+        <div class="main-desc-tab">
+            <span class="font32 mr8">오전에 보내고 오후에 받는 </span>
+           <span>
+            <span class="font32 mr8">완벽한 배송,</span>
+            <span class="font48 fw600">오늘배송</span>
+           </span>
+        </div>
+    
+        <div class="main-desc-div">
+            <div class="main-desc-div-image">
+            </div>
+            <div class="main-desc-div-text">
+                <div class="blank"></div>
+                <div class="main-desc-div-text-part">
+                    <p class="main-desc-div-text-part1">
+                        <h2>오늘배송은</h2><br>
+                        중요한 물품을 가장 빠르고 안전하게<br>
+                        목적지까지 보내드립니다.<br>
+                        서울에서 부산까지, 몇 시간 내로<br>
+                        신속한 배송이 가능합니다.<br>
+                        믿을 수 있는 운송 시스템으로<br>
+                        안심하고 소중한 물건을 맡기세요.<br><br>
+                    </p>
+
+                    <p class="main-desc-div-text-part2">
+                        지금 바로 MOBILE APP에서 손쉽게<br>
+                        예약하고, 편리한 배송을<br>
+                        경험해보세요!
+                    </p>
+                </div>
+            </div>
+        </div>    
+    </div>
+
+    <div id="notFoundDiv" class="main-not-found-div">
+        <hr class="blue-hr">
+        <img src="./images/icon_question.png" class="pb24">
+        <span class="font32 colormain fw600">운송장이 등록되지 않았거나</span>
+        <span class="font32 pb24 colormain fw600">보내는 분이 상품을 준비 중입니다.</span>
+        <span class="font24 colorlight">보내시는 분 혹은 해당 발송업체로 문의해주시기 바랍니다.</span>
+        <hr class="blue-hr">
+    </div>
+
+    <div id="trackingDiv" class="main-tracking">
+        <hr class="blue-hr">
+        <div class="main-tracking-title pb24">
+            <span class="font32 fw600 colormain">조회결과</span>
+        </div>
+        <table class="mb64 result">
+            <tr>
+                <th>물품 명</th><td id="result1"></td>
+            </tr>
+            <tr>
+                <th>보내는 분</th><td id="result2"></td>
+            </tr>
+            <tr>
+                <th>받는 분</th><td id="result3"></td>
+            </tr>
+            <tr>
+                <th>출발 터미널</th><td id="result4"></td>
+            </tr>
+            <tr>
+                <th>도착 터미널</th><td id="result5"></td>
+            </tr>
+            <tr>
+                <th>배송지 정보</th><td id="result6"></td>
+            </tr>
+        </table>
+        <div class="main-tracking-title mb48">
+            <span class="font32 fw600 colormain">상품 상태 확인</span>
+        </div>
+        <div class="mb48 circles-div">
+            <div class="circles">
+                <div>
+                    <div id="state1" class="circle-default"></div>
+                    <div id="state-title1" class="circle-titles-div">배송신청</div>
+                </div>
+                <div class="circles-arrow">
+                    <span>&#8594;</span>
+                </div>
+                <div>
+                    <div id="state2" class="circle-default"></div>
+                    <div id="state-title2" class="circle-titles-div">상품인수</div>
+                </div>
+                <div class="circles-arrow">
+                    <span>&#8594;</span>
+                </div>
+                <div>
+                    <div id="state3" class="circle-default"></div>
+                    <div id="state-title3" class="circle-titles-div">터미널 출발</div>
+                </div>
+                <div class="circles-arrow">
+                    <span>&#8594;</span>
+                </div>
+                <div>
+                    <div id="state4" class="circle-default"></div>
+                    <div id="state-title4" class="circle-titles-div">상품이동중</div>
+                </div>
+                <div class="circles-arrow">
+                    <span>&#8594;</span>
+                </div>
+                <div>
+                    <div id="state5" class="circle-default"></div>
+                    <div id="state-title5" class="circle-titles-div">터미널 도착</div>
+                </div>
+                <div class="circles-arrow">
+                    <span>&#8594;</span>
+                </div>
+                <div>
+                    <div id="state6" class="circle-default"></div>
+                    <div id="state-title6" class="circle-titles-div">상품 인계</div>
+                </div>
+                <div class="circles-arrow">
+                    <span>&#8594;</span>
+                </div>
+                <div>
+                    <div id="state7" class="circle-default"></div>
+                    <div id="state-title7" class="circle-titles-div">배송 완료</div>
+                </div>
+            </div>
+        </div>
+        <div class="circles-div">
+            <table id="statusTable" class="status">
+            </table>    
+        </div>
+
+        <div class="mo-state-table-div">
+            <table class="mo-state-table">
+                <tr>
+                    <th>2024-10-17 20:35:38</th>
+                    <td>
+                        <h4>배송신청</h4><br>
+                        배송이 신청되었습니다.
+                    </td>
+                </tr>
+                <tr>
+                    <th>2024-10-17 20:40:38</th>
+                    <td>
+                        <h4>출발지 라이더 픽업대기</h4><br>
+                        소화물을 인수 받았습니다.
+                    </td>
+                </tr>
+                <tr>
+                    <th>2024-10-17 20:46:57</th>
+                    <td>
+                        <h4>출발지 라이더 배송</h4><br>
+                        출발지 라이더가 소화물을 배송 중입니다.
+                    </td>
+                </tr>
+                <tr>
+                    <th>2024-10-17 20:35:38</th>
+                    <td>
+                        <h4>출발지 터미널 입고</h4><br>
+                        출발지 터미널에 소화물이 입고되었습니다.
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <hr class="blue-hr">
+    </div>
+
+    <div class="footer">
+        <div class="footer-logo">
+            <img id="bottomLogo" class="h24 pointer" src="./images/footer_logo2_w.png">
+        </div>
+        <div class="mr32 footer-text-div">
+            <div class="pb4">
+                <p>주소</p>
+                <span> : 경기도 부천시 부천로198번길 18,<br> 202동 12층 1310호(춘의테크노파크 2차 13층)</span>
+            </div>
+            <div class="pb4">
+                <p>전화</p>
+                <span> : 032-227-8262</span>    
+                <p>팩스</p>
+                <span> : 050-4396-9958</span>
+                <br>  
+                <p>사업자번호</p>
+                <span> : 765-88-01517</span>
+            </div>
+            <div class="pb4">
+                <span>Copyright © 2024 TAAS CO.,LTD All Rights Reserved.</span>
+            </div>
+        </div>
+
+    </div>
+</body>
