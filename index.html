@@ -58,7 +58,7 @@
     <div id="searchTab" class="search-tab">
         <span class="mr32 fw600 w100">운송장 번호</span>
         <div class="space fw600">|</div>
-        <input id="searchInput" class="search-input ml32 font20" placeholder="' - '를 제외한 숫자만 입력해주세요">
+        <input id="searchInput" class="search-input ml32 font20" placeholder="운송장 번호를 입력해 주세요.">
         <div id="searchButton" class="search-button w100">
             <img class="h16 mr8" src="./images/icon_search.png">
             <span class="fw600">검색</span>
@@ -116,22 +116,28 @@
         </div>
         <table class="mb64 result">
             <tr>
-                <th>물품 명</th><td id="result1"></td>
+                <th>물품 명</th>
+                <td id="result1">제주삼다수 그린 무라벨, 2L, 12개</td>
             </tr>
             <tr>
-                <th>보내는 분</th><td id="result2"></td>
+                <th>보내는 분</th>
+                <td id="result2">제주삼다수</td>
             </tr>
             <tr>
-                <th>받는 분</th><td id="result3"></td>
+                <th>받는 분</th>
+                <td id="result3">홍길동</td>
             </tr>
             <tr>
-                <th>출발 터미널</th><td id="result4"></td>
+                <th>출발 터미널</th>
+                <td id="result4">쿠팡 제주1캠프</td>
             </tr>
             <tr>
-                <th>도착 터미널</th><td id="result5"></td>
+                <th>도착 터미널</th>
+                <td id="result5">쿠팡 인천14캠프</td>
             </tr>
             <tr>
-                <th>배송지 정보</th><td id="result6"></td>
+                <th>배송지 정보</th>
+                <td id="result6">인천광역시 남동구 호구포로 922</td>
             </tr>
         </table>
         <div class="main-tracking-title mb48">
@@ -168,8 +174,8 @@
                     <span>&#8594;</span>
                 </div>
                 <div>
-                    <div id="state5" class="circle-default"></div>
-                    <div id="state-title5" class="circle-titles-div">터미널 도착</div>
+                    <div id="state5" class="circle-default circle-checked"></div>
+                    <div id="state-title5" class="circle-titles-div circle-titles-div-checked">터미널 도착</div>
                 </div>
                 <div class="circles-arrow">
                     <span>&#8594;</span>
